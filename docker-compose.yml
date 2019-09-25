@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  web:
+    build: .
+    command: python3 /projects/manage.py runserver 0.0.0.0:8000
+    environment:
+      - ENVIRONMENT = production
+      - SECRET_KEY=gdfghtr345524tre
+      - DEBUG = 0
+      - STRIPE_TEST_PUBLISHABLE_KEY=pk_live_wUVZEXSgklwnawrivrdaEdSK
+      - STRIPE_TEST_SECRET_KEY=sk_live_WRiGBFqtgqV0P0pqgLXjhUZl
+    volumes:
+      - .:/projects
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres:11
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
