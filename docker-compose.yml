@@ -8,8 +8,6 @@ services:
       - ENVIRONMENT = production
       - SECRET_KEY=gdfghtr345524tre
       - DEBUG = 0
-      - STRIPE_TEST_PUBLISHABLE_KEY=pk_live_wUVZEXSgklwnawrivrdaEdSK
-      - STRIPE_TEST_SECRET_KEY=sk_live_WRiGBFqtgqV0P0pqgLXjhUZl
     volumes:
       - .:/projects
     ports:
